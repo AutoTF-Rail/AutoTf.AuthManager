@@ -1,0 +1,14 @@
+﻿services:
+  autotf.authmanager:
+    image: autotf.authmanager
+#    Create .env file in same directory containing e.g. clientId=XXX
+    environment:
+      - ClientId=${clientId}
+      - Username=${username}
+      - Password=${password}
+      - AuthUrl=${authUrl}
+    ports:
+      - "80:80"
+#    build:
+#      context: .
+#      dockerfile: AutoTf.AuthManager/Dockerfile
