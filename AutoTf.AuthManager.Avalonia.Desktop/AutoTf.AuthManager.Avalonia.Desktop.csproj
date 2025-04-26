@@ -21,6 +21,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\AutoTf.AuthManager.Avalonia.Browser\AutoTf.AuthManager.Avalonia.Browser.csproj" />
       <ProjectReference Include="..\AutoTf.AuthManager.Avalonia\AutoTf.AuthManager.Avalonia.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Avalonia.Controls">
+        <HintPath>bin\Debug\net9.0\Avalonia.Controls.dll</HintPath>
+      </Reference>
     </ItemGroup>
 </Project>

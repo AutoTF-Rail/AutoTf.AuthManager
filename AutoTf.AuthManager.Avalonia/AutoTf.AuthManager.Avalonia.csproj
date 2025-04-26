@@ -9,9 +9,6 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
-    <ItemGroup>
-        <AvaloniaResource Include="Assets\**" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Avalonia" Version="11.2.7" />
@@ -24,4 +21,5 @@
     <ItemGroup>
       <ProjectReference Include="..\AutoTf.AuthManager.Models\AutoTf.AuthManager.Models.csproj" />
     </ItemGroup>
+
 </Project>

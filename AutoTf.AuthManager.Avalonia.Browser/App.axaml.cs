@@ -1,18 +1,19 @@
+using System.Linq;
+using System.Runtime.InteropServices.JavaScript;
+using AutoTf.AuthManager.Avalonia.Browser.ViewModels;
+using AutoTf.AuthManager.Avalonia.Browser.Views;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
-using System.Linq;
 using Avalonia.Markup.Xaml;
-using AutoTf.AuthManager.Avalonia.ViewModels;
-using AutoTf.AuthManager.Avalonia.Views;
 
-namespace AutoTf.AuthManager.Avalonia;
+namespace AutoTf.AuthManager.Avalonia.Browser;
 
 public partial class App : Application
 {
     public override void Initialize()
     {
+        JSHost.ImportAsync("main.js", "/main.js");
         AvaloniaXamlLoader.Load(this);
     }
 

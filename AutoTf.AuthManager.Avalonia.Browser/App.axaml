@@ -1,12 +1,13 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:avalonia="clr-namespace:AutoTf.AuthManager.Avalonia"
-             x:Class="AutoTf.AuthManager.Avalonia.App"
+             xmlns:browser="clr-namespace:AutoTf.AuthManager.Avalonia.Browser"
+             x:Class="AutoTf.AuthManager.Avalonia.Browser.App"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <avalonia:ViewLocator/>
+        <browser:ViewLocator/>
     </Application.DataTemplates>
 
     <Application.Styles>

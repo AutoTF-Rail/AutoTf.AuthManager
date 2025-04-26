@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace AutoTf.AuthManager.Avalonia.Views;
+namespace AutoTf.AuthManager.Avalonia.Browser.Views;
 
 public partial class MainWindow : Window
 {

@@ -10,6 +10,10 @@
     <ItemGroup>
         <PackageReference Include="Avalonia.Browser" Version="11.2.7" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
+    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\AutoTf.AuthManager.Avalonia\AutoTf.AuthManager.Avalonia.csproj" />
@@ -22,6 +26,23 @@
         <WasmFiles Include="bin\Release\net8.0\wasm\publish\**\*.*" />
     </ItemGroup>
     <ItemGroup>
+      <AvaloniaResource Include="Assets\BlueWheelAlone.png" />
       <AvaloniaResource Include="wwwroot\favicon.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <AdditionalFiles Include="Views\MainView.axaml" />
+      <AdditionalFiles Include="Views\MainWindow.axaml" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="App.axaml.cs">
+        <DependentUpon>App.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <UpToDateCheckInput Remove="Assets\BlueWheelAlone.png" />
+        <UpToDateCheckInput Remove="Views\MainView.axaml" />
+        <UpToDateCheckInput Remove="Views\MainWindow.axaml" />
     </ItemGroup>
 </Project>

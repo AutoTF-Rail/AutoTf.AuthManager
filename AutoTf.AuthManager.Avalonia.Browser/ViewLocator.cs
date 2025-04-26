@@ -1,8 +1,9 @@
+using System;
+using AutoTf.AuthManager.Avalonia.Browser.ViewModels;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using AutoTf.AuthManager.Avalonia.ViewModels;
 
-namespace AutoTf.AuthManager.Avalonia;
+namespace AutoTf.AuthManager.Avalonia.Browser;
 
 public class ViewLocator : IDataTemplate
 {
