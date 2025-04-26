@@ -109,10 +109,14 @@ public static class HttpHelper
 
             return response.IsSuccessStatusCode;
         }
-        catch
+        catch (Exception ex)
         {
             if (reThrow)
                 throw;
+            else
+            {
+                Console.WriteLine(ex.ToString());
+            }
             
             return false;
         }
