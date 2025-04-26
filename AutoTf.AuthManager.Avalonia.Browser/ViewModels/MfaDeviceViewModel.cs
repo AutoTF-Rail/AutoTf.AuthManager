@@ -126,6 +126,7 @@ public partial class MfaDeviceViewModel : ReactiveObject
     {
         List<MfaDevice> selectedDevices = Devices.Where(x => x.IsChecked).ToList();
 
+        Console.WriteLine($"Selected {selectedDevices.Count()} Device(s) to delete.");
         if (!selectedDevices.Any())
             return;
         
@@ -134,6 +135,7 @@ public partial class MfaDeviceViewModel : ReactiveObject
         
         foreach (MfaDevice device in selectedDevices)
         {
+            Console.WriteLine($"Deleting device {device.Name} - {device.VerboseName}.");
             await HttpHelper.SendDelete($"/authenticators/{device.Type}/{device.Pk}");
         }
         
