@@ -5,21 +5,21 @@ using Microsoft.AspNetCore.Mvc;
 namespace AutoTf.AuthManager.Controllers.Authenticators;
 
 [ApiController]
-[Route("/authenticators/email")]
-public class EmailController : AuthentikController
+[Route("/authenticators/static")]
+public class StaticController : AuthentikController
 {
-    public EmailController(UserManager userManager) : base(userManager) { }
+    public StaticController(UserManager userManager) : base(userManager) { }
 
     [HttpGet]
     public async Task<ActionResult<string>> Get([FromQuery] string name, [FromQuery] string ordering, [FromQuery] int page, [FromQuery(Name = "page_size")] int pageSize, [FromQuery] string search)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/email/?name={name}&ordering={ordering}&page={page}&page_size={pageSize}&search={search}");
+        return await HttpHelper.SendGet($"/api/v3/authenticators/static/?name={name}&ordering={ordering}&page={page}&page_size={pageSize}&search={search}");
     }
 
     [HttpGet("{id:int}")]
     public async Task<ActionResult<string>> Get(int id)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/email/{id}/");
+        return await HttpHelper.SendGet($"/api/v3/authenticators/static/{id}/");
     }
     
     [HttpPut("{id:int}")]
@@ -27,13 +27,13 @@ public class EmailController : AuthentikController
     {
         HttpContent content = new StringContent(name, Encoding.UTF8, "application/json");
         
-        return await HttpHelper.SendPut($"/api/v3/authenticators/email/{id}/", content, false);
+        return await HttpHelper.SendPut($"/api/v3/authenticators/static/{id}/", content, false);
     }
     
     [HttpDelete("{id:int}")]
     public async Task<ActionResult<bool>> Delete(int id)
     {
-        return await HttpHelper.SendDelete($"/api/v3/authenticators/email/{id}/", false);
+        return await HttpHelper.SendDelete($"/api/v3/authenticators/static/{id}/", false);
     }
     
     [HttpPatch("{id:int}")]
@@ -41,12 +41,12 @@ public class EmailController : AuthentikController
     {
         HttpContent content = new StringContent(name, Encoding.UTF8, "application/json");
         
-        return await HttpHelper.SendPatch($"/api/v3/authenticators/email/{id}/", content, false);
+        return await HttpHelper.SendPatch($"/api/v3/authenticators/static/{id}/", content, false);
     }
     
     [HttpGet("{id:int}/used_by")]
     public async Task<ActionResult<string>> UsedBy(int id)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/email/{id}/", false);
+        return await HttpHelper.SendGet($"/api/v3/authenticators/static/{id}/", false);
     }
 }
