@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <UseAvalonia>true</UseAvalonia>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,5 +18,10 @@
       <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.7" />
       <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.7" />
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+      <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AutoTf.AuthManager.Models\AutoTf.AuthManager.Models.csproj" />
     </ItemGroup>
 </Project>
