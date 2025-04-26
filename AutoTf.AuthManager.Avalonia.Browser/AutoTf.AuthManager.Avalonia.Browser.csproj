@@ -9,6 +9,8 @@
 
     <ItemGroup>
         <PackageReference Include="Avalonia.Browser" Version="11.2.7" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.2.7" />
+        <PackageReference Include="ReactiveUI" Version="20.2.45" />
     </ItemGroup>
     
     <ItemGroup>

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices.JavaScript;
+using System.Text.Json;
+using AutoTf.AuthManager.Avalonia.Browser.UserControls;
 using AutoTf.AuthManager.Models;
 using AutoTf.AuthManager.Models.Authentik;
 using Avalonia;
@@ -20,13 +23,10 @@ public partial class MainView : UserControl
         if (TabsListbox.SelectedItem is not TextBlock textBlock)
             return;
         
-        Console.WriteLine(UrlHelper.GetApiUrlFromJs());
-        
         if (textBlock.Text == "MFA Devices")
         {
             Console.WriteLine("Changing to MFA Devices tab.");
-            List<TotpDevice>? totpDevices = await HttpHelper.SendGet<List<TotpDevice>>(UrlHelper.GetApiUrlFromJs() + "/authenticators/all", false);
-            Console.WriteLine(totpDevices?.Count);
+            ChildUserControl.Children.Add(new MfaDevicesView());
         }
     }
 }

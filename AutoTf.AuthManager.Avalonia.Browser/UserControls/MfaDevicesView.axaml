@@ -1,0 +1,62 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AutoTf.AuthManager.Avalonia.Browser.UserControls"
+             xmlns:viewModels="clr-namespace:AutoTf.AuthManager.Avalonia.Browser.ViewModels"
+             xmlns:authentik="clr-namespace:AutoTf.AuthManager.Models.Authentik;assembly=AutoTf.AuthManager.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AutoTf.AuthManager.Avalonia.Browser.UserControls.MfaDevicesView"
+             x:DataType="viewModels:MfaDeviceViewModel">
+    <Design.DataContext>
+        <viewModels:MfaDeviceViewModel />
+    </Design.DataContext>
+    <Grid Margin="10">
+        <StackPanel HorizontalAlignment="Stretch">
+            <DockPanel LastChildFill="False" Margin="0, 5">
+                <Menu VerticalAlignment="Top" Margin="5, 0" Background="DarkGray" CornerRadius="5" HorizontalAlignment="Left" >
+                    <MenuItem>
+                        <MenuItem.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Enroll" VerticalAlignment="Center"/>
+                                    <Path Data="M0,0 L5,5 L10,0 Z" Fill="Black" Width="10" Height="10" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </MenuItem.HeaderTemplate>
+                        <MenuItem.Items>
+                            <MenuItem Header="Static tokens" />
+                            <MenuItem Header="TOTP Device" />
+                            <MenuItem Header="WebAuthn device" />
+                        </MenuItem.Items>
+                    </MenuItem>
+                </Menu>
+                <Button Margin="5, 0" Command="{Binding RefreshCommand}">Refresh</Button>
+                <Button Margin="5, 0">Delete</Button>
+            </DockPanel>
+            
+        </StackPanel>
+        
+        <ListBox ItemsSource="{Binding Devices}" Margin="10, 70, 10, 10">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="authentik:TotpDevice">
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+        
+                        <CheckBox Grid.Column="0" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="18" Text="{Binding VerboseName}" />
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" FontSize="18" Text="{Binding Type}" />
+                        <TextBlock Grid.Column="3" VerticalAlignment="Center" FontSize="18" Text="{Binding Created}" />
+                        <TextBlock Grid.Column="4" VerticalAlignment="Center" FontSize="18" Text="{Binding LastUsed}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

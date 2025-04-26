@@ -17,12 +17,14 @@
         </Grid.ColumnDefinitions>
         
         <ListBox Grid.Column="0" Name="TabsListbox" SelectionChanged="TabsListbox_OnSelectionChanged">
-            <TextBlock HorizontalAlignment="Stretch" FontSize="20">User details</TextBlock>
-            <TextBlock HorizontalAlignment="Stretch" FontSize="20">Sessions</TextBlock>
-            <TextBlock HorizontalAlignment="Stretch" FontSize="20">Consent</TextBlock>
-            <TextBlock HorizontalAlignment="Stretch" FontSize="20">MFA Devices</TextBlock>
-            <TextBlock HorizontalAlignment="Stretch" FontSize="20">Connected services</TextBlock>
-            <TextBlock HorizontalAlignment="Stretch" FontSize="20">Tokens and App passwords</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="18">User details</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="18">Sessions</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="18">Consent</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="18">MFA Devices</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="18">Connected services</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="18">Tokens and App passwords</TextBlock>
         </ListBox>
+        
+        <Grid Grid.Column="1" Name="ChildUserControl"></Grid>
     </Grid>
 </UserControl>

@@ -1,3 +1,4 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace AutoTf.AuthManager.Models.Authentik;
@@ -36,4 +37,22 @@ public class TotpDevice
 
     [JsonPropertyName("extra_description")]
     public string ExtraDescription { get; set; }
+
+    public static TotpDevice Serialize(JsonElement item)
+    {
+        return new TotpDevice()
+        {
+            VerboseName = item.GetProperty("verbose_name").GetString()!,
+            VerboseNamePlural = item.GetProperty("verbose_name_plural").GetString()!,
+            MetaModelName = item.GetProperty("meta_model_name").GetString()!,
+            Pk = item.GetProperty("pk").GetString()!,
+            Name = item.GetProperty("name").GetString()!,
+            Type = item.GetProperty("type").GetString()!,
+            Confirmed = item.GetProperty("confirmed").GetBoolean(),
+            Created = item.GetProperty("created").GetDateTime(),
+            LastUpdated = item.GetProperty("last_updated").GetDateTime(),
+            LastUsed = item.GetProperty("last_used").GetDateTime(),
+            ExtraDescription = item.GetProperty("extra_description").GetString()!
+        };
+    }
 }
