@@ -27,7 +27,7 @@
                     </MenuItem>
                 </Menu>
                 <Button Margin="5, 0" Command="{Binding RefreshCommand}">Refresh</Button>
-                <Button Margin="5, 0">Delete</Button>
+                <Button Margin="5, 0" Command="{Binding DeleteCommand}">Delete</Button>
             </DockPanel>
             
         </StackPanel>
@@ -46,11 +46,7 @@
         
                         <CheckBox Grid.Column="0" IsChecked="{Binding IsChecked}" />
                         <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="18" Text="{Binding Name}" />
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" FontSize="18" >
-                            <Run Text="{Binding VerboseName}" />
-                            <Run Text="-"></Run>
-                            <Run Text="{Binding Name}"></Run>
-                        </TextBlock>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" FontSize="18" Text="{Binding VerboseName}" />
                         <TextBlock Grid.Column="3" VerticalAlignment="Center" FontSize="18" Text="{Binding Created}" />
                         <TextBlock Grid.Column="4" VerticalAlignment="Center" FontSize="18" Text="{Binding LastUsed}" />
                     </Grid>
