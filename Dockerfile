@@ -13,6 +13,7 @@ COPY ["AutoTf.AuthManager/AutoTf.AuthManager.csproj", "AutoTf.AuthManager/"]
 RUN dotnet restore "AutoTf.AuthManager/AutoTf.AuthManager.csproj"
 COPY . .
 
+WORKDIR "/src/AutoTf.AuthManager"
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "AutoTf.AuthManager.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
