@@ -27,31 +27,19 @@ public class TotpDevice
     public bool Confirmed { get; set; }
 
     [JsonPropertyName("created")]
-    public DateTime? Created { get; set; }
+    public string? Created { get; set; }
 
     [JsonPropertyName("last_updated")]
-    public DateTime? LastUpdated { get; set; }
+    public string? LastUpdated { get; set; }
 
     [JsonPropertyName("last_used")]
-    public DateTime? LastUsed { get; set; }
+    public string? LastUsed { get; set; }
 
     [JsonPropertyName("extra_description")]
     public string ExtraDescription { get; set; }
 
     public static TotpDevice Serialize(JsonElement item)
     {
-        DateTime? finalCreated = null;
-        if (item.GetProperty("created").TryGetDateTime(out DateTime created))
-            finalCreated = created;
-        
-        DateTime? finalLastUpdate = null;
-        if (item.GetProperty("last_updated").TryGetDateTime(out DateTime lastUpdate))
-            finalLastUpdate = lastUpdate;
-        
-        DateTime? finalLastUsed = null;
-        if (item.GetProperty("last_used").TryGetDateTime(out DateTime lastUsed))
-            finalLastUsed = lastUsed;
-            
         return new TotpDevice()
         {
             VerboseName = item.GetProperty("verbose_name").GetString() ?? "Unknown",
@@ -61,9 +49,9 @@ public class TotpDevice
             Name = item.GetProperty("name").GetString() ?? "Unknown",
             Type = item.GetProperty("type").GetString() ?? "Unknown",
             Confirmed = item.GetProperty("confirmed").GetBoolean(),
-            Created = finalCreated,
-            LastUpdated = finalLastUpdate,
-            LastUsed = finalLastUsed,
+            Created = item.GetProperty("created").GetString() ?? "Unknown",
+            LastUpdated = item.GetProperty("last_updated").GetString() ?? "Unknown",
+            LastUsed = item.GetProperty("last_used").GetString() ?? "Unknown",
             ExtraDescription = item.GetProperty("extra_description").GetString() ?? "Unknown"
         };
     }
