@@ -1,14 +1,20 @@
 ﻿services:
   autotf.authmanager:
-    image: autotf.authmanager
+    container_name: AuthManager
+    image: 172.17.0.3:5001/repository/docker-autotf/autotf.authmanager:latest
+    restart: unless-stopped
 #    Create .env file in same directory containing e.g. clientId=XXX
     environment:
-      - ClientId=${clientId}
-      - Username=${username}
-      - Password=${password}
-      - AuthUrl=${authUrl}
+      - ClientId=${ClientId}
+      - Username=${Username}
+      - Password=${Password}
+      - AuthUrl=${AuthUrl}
+    networks:
+      authinstall_default: {}
     ports:
-      - "80:80"
-#    build:
-#      context: .
-#      dockerfile: AutoTf.AuthManager/Dockerfile
+      - "8380:80"
+      - "8381:81"
+        
+networks:
+  authinstall_default:
+    external: true
