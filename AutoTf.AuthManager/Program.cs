@@ -1,3 +1,4 @@
+using AutoTf.AuthManager.Avalonia;
 using AutoTf.AuthManager.Controllers;
 using AutoTf.AuthManager.Extensions;
 using AutoTf.AuthManager.Models;
@@ -39,7 +40,12 @@ public static class Program
         app.UseAuthorization();
 
         app.UseDefaultFiles();
-        app.UseStaticFiles();
+        
+        app.UseStaticFiles(new StaticFileOptions
+        {
+            ServeUnknownFileTypes = true,
+            DefaultContentType = "application/octet-stream"
+        });
         
         app.MapControllers();
 

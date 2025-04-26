@@ -7,4 +7,35 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Models\Authentik\Requests\Authenticators\" />
+    </ItemGroup>
+  
+    <ItemGroup>
+      <ProjectReference Include="..\AutoTf.AuthManager.Avalonia\AutoTf.AuthManager.Avalonia.csproj" />
+    </ItemGroup>
+    
+    <Target Name="BuildBrowserProject" BeforeTargets="Build">
+        <Exec Command="dotnet publish ../AutoTf.AuthManager.Avalonia.Browser/AutoTf.AuthManager.Avalonia.Browser.csproj -c Release" />
+    </Target>
+
+  <Target Name="CopyAvaloniaWebOutput" AfterTargets="Build">
+    <ItemGroup>
+      <WwwRootFiles Include="../AutoTf.AuthManager.Avalonia.Browser/bin/Release/net9.0-browser/publish/wwwroot/**/*"/>
+    </ItemGroup>
+    <Copy
+            SourceFiles="@(WwwRootFiles)"
+            DestinationFolder="wwwroot/%(RecursiveDir)"
+            SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="CopyAvaloniaStaticFiles" AfterTargets="Build">
+    <ItemGroup>
+      <WwwStaticFiles Include="../AutoTf.AuthManager.Avalonia.Browser/wwwroot/**/*"/>
+    </ItemGroup>
+    <Copy
+            SourceFiles="@(WwwStaticFiles)"
+            DestinationFolder="wwwroot/%(RecursiveDir)"
+            SkipUnchangedFiles="true" />
+  </Target>
 </Project>

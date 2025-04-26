@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0-browser</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia.Browser" Version="11.2.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AutoTf.AuthManager.Avalonia\AutoTf.AuthManager.Avalonia.csproj" />
+    </ItemGroup>
+
+    <Target Name="CopyWebAssemblyOutput" AfterTargets="Publish">
+        <Copy SourceFiles="@(WasmFiles)" DestinationFolder="$(OutputPath)" />
+    </Target>
+    <ItemGroup>
+        <WasmFiles Include="bin\Release\net8.0\wasm\publish\**\*.*" />
+    </ItemGroup>
+</Project>
