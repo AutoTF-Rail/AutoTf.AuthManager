@@ -7,8 +7,9 @@ public static class HttpHelper
 {
     /// <summary>
     /// Sends a GET request to the given endpoint and returns it's content as a string.
+    /// It is not required to add the authentik username header in here, because that's automatically done due to all requests being routed through authentik.
     /// </summary>
-    public static async Task<string> SendGet(string endpoint, bool reThrow = true, int timeoutSeconds = 5)
+    public static async Task<string> SendGetString(string endpoint, bool reThrow = true, int timeoutSeconds = 5)
     {
         try
         {
@@ -16,9 +17,9 @@ public static class HttpHelper
             using HttpClient client = new HttpClient();
             client.Timeout = TimeSpan.FromSeconds(timeoutSeconds);
             
-            if (Statics.Token != string.Empty)  
+            if (Statics.Token != string.Empty)
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Statics.Token);
-			
+            
             HttpResponseMessage response = await client.GetAsync(endpoint);
             response.EnsureSuccessStatusCode();
 
@@ -46,7 +47,7 @@ public static class HttpHelper
             
             if (Statics.Token != string.Empty)  
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Statics.Token);
-			
+            
             HttpResponseMessage response = await client.GetAsync(endpoint);
             response.EnsureSuccessStatusCode();
 
@@ -75,7 +76,7 @@ public static class HttpHelper
             
             if (Statics.Token != string.Empty)  
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Statics.Token);
-			
+            
             HttpResponseMessage response = await client.PostAsync(endpoint, content);
             response.EnsureSuccessStatusCode();
 
@@ -101,7 +102,7 @@ public static class HttpHelper
 
             if (Statics.Token != string.Empty)
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Statics.Token);
-
+            
             HttpResponseMessage response = await client.DeleteAsync(endpoint);
 
             return response.IsSuccessStatusCode;
@@ -152,7 +153,7 @@ public static class HttpHelper
 
             if (Statics.Token != string.Empty)
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Statics.Token);
-
+            
             HttpResponseMessage response = await client.PutAsync(endpoint, content);
             response.EnsureSuccessStatusCode();
             
@@ -178,7 +179,7 @@ public static class HttpHelper
 
             if (Statics.Token != string.Empty)
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Statics.Token);
-
+            
             HttpResponseMessage response = await client.PatchAsync(endpoint, content);
             response.EnsureSuccessStatusCode();
 

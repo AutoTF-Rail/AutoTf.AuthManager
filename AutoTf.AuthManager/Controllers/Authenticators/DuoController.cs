@@ -14,13 +14,13 @@ public class DuoController : AuthentikController
     [HttpGet]
     public async Task<ActionResult<string>> Get()
     {
-        return await HttpHelper.SendGet("/api/v3/authenticators/duo/");
+        return await HttpHelper.SendGetString("/api/v3/authenticators/duo/");
     }
 
     [HttpGet("{id:int}")]
     public async Task<ActionResult<string>> Get(int id)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/duo/{id}/");
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/duo/{id}/");
     }
     
     [HttpPut("{id:int}")]
@@ -48,6 +48,6 @@ public class DuoController : AuthentikController
     [HttpGet("{id:int}/used_by")]
     public async Task<ActionResult<string>> UsedBy(int id)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/duo/{id}/", false);
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/duo/{id}/", false);
     }
 }

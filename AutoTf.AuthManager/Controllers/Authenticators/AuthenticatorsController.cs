@@ -12,6 +12,6 @@ public class AuthenticatorsController : AuthentikController
     [HttpGet("all")]
     public async Task<ActionResult<string>> All()
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/admin/all/?user={UserId}");
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/admin/all/?user={UserId}");
     }
 }

@@ -14,13 +14,13 @@ public class TotpController : AuthentikController
     [HttpGet]
     public async Task<ActionResult<string>> Get([FromQuery] string name, [FromQuery] string ordering, [FromQuery] int page, [FromQuery(Name = "page_size")] int pageSize, [FromQuery] string search)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/totp/?name={name}&ordering={ordering}&page={page}&page_size={pageSize}&search={search}");
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/totp/?name={name}&ordering={ordering}&page={page}&page_size={pageSize}&search={search}");
     }
 
     [HttpGet("{id:int}")]
     public async Task<ActionResult<string>> Get(int id)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/totp/{id}/");
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/totp/{id}/");
     }
     
     [HttpPut("{id:int}")]
@@ -48,6 +48,6 @@ public class TotpController : AuthentikController
     [HttpGet("{id:int}/used_by")]
     public async Task<ActionResult<string>> UsedBy(int id)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/totp/{id}/", false);
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/totp/{id}/", false);
     }
 }

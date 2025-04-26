@@ -12,18 +12,18 @@ public class EndpointController : AuthentikController
     [HttpGet]
     public async Task<ActionResult<string>> Get([FromQuery] string name, [FromQuery] string ordering, [FromQuery] int page, [FromQuery(Name = "page_size")] int pageSize, [FromQuery] string search)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/endpoint/?name={name}&ordering={ordering}&page={page}&page_size={pageSize}&search={search}");
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/endpoint/?name={name}&ordering={ordering}&page={page}&page_size={pageSize}&search={search}");
     }
 
     [HttpGet("{id:int}")]
     public async Task<ActionResult<string>> Get(int id)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/email/{id}/");
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/email/{id}/");
     }
     
     [HttpGet("{uuid}")]
     public async Task<ActionResult<string>> Get(string uuid)
     {
-        return await HttpHelper.SendGet($"/api/v3/authenticators/endpoint/{uuid}/", false);
+        return await HttpHelper.SendGetString($"/api/v3/authenticators/endpoint/{uuid}/", false);
     }
 }
