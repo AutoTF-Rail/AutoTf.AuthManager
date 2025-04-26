@@ -1,4 +1,3 @@
-using AutoTf.AuthManager.Avalonia;
 using AutoTf.AuthManager.Controllers;
 using AutoTf.AuthManager.Extensions;
 using AutoTf.AuthManager.Models;
