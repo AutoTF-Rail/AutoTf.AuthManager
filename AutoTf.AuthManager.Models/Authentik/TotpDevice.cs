@@ -42,17 +42,17 @@ public class TotpDevice
     {
         return new TotpDevice()
         {
-            VerboseName = item.GetProperty("verbose_name").GetString()!,
-            VerboseNamePlural = item.GetProperty("verbose_name_plural").GetString()!,
-            MetaModelName = item.GetProperty("meta_model_name").GetString()!,
-            Pk = item.GetProperty("pk").GetString()!,
-            Name = item.GetProperty("name").GetString()!,
-            Type = item.GetProperty("type").GetString()!,
+            VerboseName = item.GetProperty("verbose_name").GetString() ?? "Unknown",
+            VerboseNamePlural = item.GetProperty("verbose_name_plural").GetString() ?? "Unknown",
+            MetaModelName = item.GetProperty("meta_model_name").GetString() ?? "Unknown",
+            Pk = item.GetProperty("pk").GetString() ?? "Unknown",
+            Name = item.GetProperty("name").GetString() ?? "Unknown",
+            Type = item.GetProperty("type").GetString() ?? "Unknown",
             Confirmed = item.GetProperty("confirmed").GetBoolean(),
             Created = item.GetProperty("created").GetDateTime(),
             LastUpdated = item.GetProperty("last_updated").GetDateTime(),
             LastUsed = item.GetProperty("last_used").GetDateTime(),
-            ExtraDescription = item.GetProperty("extra_description").GetString()!
+            ExtraDescription = item.GetProperty("extra_description").GetString() ?? "Unknown"
         };
     }
 }
