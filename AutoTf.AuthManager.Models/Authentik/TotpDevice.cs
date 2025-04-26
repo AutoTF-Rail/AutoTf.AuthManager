@@ -44,7 +44,8 @@ public class TotpDevice
         {
             VerboseName = item.GetProperty("verbose_name").GetString() ?? "Unknown",
             VerboseNamePlural = item.GetProperty("verbose_name_plural").GetString() ?? "Unknown",
-            MetaModelName = item.GetProperty("meta_model_name").GetString() ?? "Unknown",
+            // Maybe remove this and do that via a converted?
+            MetaModelName = item.GetProperty("meta_model_name").GetString()?.Split('.')[1] ?? "Unknown",
             Pk = item.GetProperty("pk").GetString() ?? "Unknown",
             Name = item.GetProperty("name").GetString() ?? "Unknown",
             Type = item.GetProperty("type").GetString() ?? "Unknown",
