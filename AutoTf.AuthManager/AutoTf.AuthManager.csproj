@@ -16,12 +16,12 @@
     </ItemGroup>
     
     <Target Name="BuildBrowserProject" BeforeTargets="Build">
-        <Exec Command="dotnet build ../AutoTf.AuthManager.Avalonia.Browser/AutoTf.AuthManager.Avalonia.Browser.csproj -c Debug -m" />
+        <Exec Command="dotnet build ../AutoTf.AuthManager.Avalonia.Browser/AutoTf.AuthManager.Avalonia.Browser.csproj -c $(Configuration) -m" />
     </Target>
 
   <Target Name="CopyAvaloniaWebOutput" AfterTargets="Build">
     <ItemGroup>
-      <WwwRootFiles Include="../AutoTf.AuthManager.Avalonia.Browser/bin/Debug/net9.0-browser/wwwroot/**/*"/>
+      <WwwRootFiles Include="../AutoTf.AuthManager.Avalonia.Browser/bin/$(Configuration)/net9.0-browser/wwwroot/**/*"/>
     </ItemGroup>
     <Copy
             SourceFiles="@(WwwRootFiles)"
