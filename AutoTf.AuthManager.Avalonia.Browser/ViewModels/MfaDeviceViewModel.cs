@@ -135,7 +135,7 @@ public partial class MfaDeviceViewModel : ReactiveObject
         foreach (MfaDevice device in selectedDevices)
         {
             Console.WriteLine($"Deleting device {device.Name} - {device.VerboseName}.");
-            await HttpHelper.SendDelete(WebInterop.GetApiUrlFromJs() + $"/authenticators/{device.Type}/{device.Pk}");
+            await HttpHelper.SendDelete(WebInterop.GetApiUrlFromJs() + $"/authenticators/{device.Type.ToLower().Replace("device", "")}/{device.Pk}");
         }
         
         await LoadDevices();
