@@ -4,6 +4,9 @@ EXPOSE 80
 EXPOSE 81
 
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+RUN apt-get update && apt-get install -y python3
+RUN dotnet workload install wasm-tools
+
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["AutoTf.AuthManager/AutoTf.AuthManager.csproj", "AutoTf.AuthManager/"]
