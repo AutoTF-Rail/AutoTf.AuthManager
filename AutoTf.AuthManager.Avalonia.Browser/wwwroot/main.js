@@ -15,3 +15,7 @@ await dotnetRuntime.runMain(config.mainAssemblyName, [globalThis.location.href])
 export function getApiUrl() {
     return window.location.origin;
 }
+
+export function openNewTab(url) {
+    window.open(url, '_blank');
+}

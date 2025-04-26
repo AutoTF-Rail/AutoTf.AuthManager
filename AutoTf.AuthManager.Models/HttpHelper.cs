@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using System.Net.Http.Headers;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 
 namespace AutoTf.AuthManager.Models;
@@ -9,7 +11,7 @@ public static class HttpHelper
     /// Sends a GET request to the given endpoint and returns it's content as a string.
     /// It is not required to add the authentik username header in here, because that's automatically done due to all requests being routed through authentik.
     /// </summary>
-    public static async Task<string> SendGetString(string endpoint, bool reThrow = true, int timeoutSeconds = 5)
+    public static async Task<string> SendGetString(string endpoint, bool reThrow = false, int timeoutSeconds = 5)
     {
         try
         {
@@ -37,7 +39,7 @@ public static class HttpHelper
     /// <summary>
     /// Sends a GET request to the given endpoint and returns it's content as the given type.
     /// </summary>
-    public static async Task<T?> SendGet<T>(string endpoint, bool reThrow = true, int timeoutSeconds = 5)
+    public static async Task<T?> SendGet<T>(string endpoint, bool reThrow = false, int timeoutSeconds = 5)
     {
         try
         {
@@ -65,7 +67,7 @@ public static class HttpHelper
     /// <summary>
     /// Sends a GET request to the given endpoint and returns it's content as a string.
     /// </summary>
-    public static async Task<T?> SendPost<T>(string endpoint, HttpContent content, bool reThrow = true, int timeoutSeconds = 5)
+    public static async Task<T?> SendPost<T>(string endpoint, HttpContent content, bool reThrow = false, int timeoutSeconds = 5)
     {
         try
         {
@@ -91,7 +93,7 @@ public static class HttpHelper
         }
     }
 
-    public static async Task<bool> SendDelete(string endpoint, bool reThrow = true, int timeoutSeconds = 5)
+    public static async Task<bool> SendDelete(string endpoint, bool reThrow = false, int timeoutSeconds = 5)
     {
         try
         {
@@ -116,7 +118,7 @@ public static class HttpHelper
         }
     }
 
-    public static async Task<string> SendPut(string endpoint, HttpContent content, bool reThrow = true, int timeoutSeconds = 5)
+    public static async Task<string> SendPut(string endpoint, HttpContent content, bool reThrow = false, int timeoutSeconds = 5)
     {
         try
         {
@@ -142,7 +144,7 @@ public static class HttpHelper
         }
     }
 
-    public static async Task<T?> SendPut<T>(string endpoint, HttpContent content, bool reThrow = true, int timeoutSeconds = 5)
+    public static async Task<T?> SendPut<T>(string endpoint, HttpContent content, bool reThrow = false, int timeoutSeconds = 5)
     {
         try
         {
@@ -168,7 +170,7 @@ public static class HttpHelper
         }
     }
 
-    public static async Task<string> SendPatch(string endpoint, HttpContent content, bool reThrow, int timeoutSeconds = 5)
+    public static async Task<string> SendPatch(string endpoint, HttpContent content, bool reThrow = false, int timeoutSeconds = 5)
     {
         try
         {
@@ -194,7 +196,7 @@ public static class HttpHelper
         }
     }
 
-    public static async Task<T?> SendPatch<T>(string endpoint, HttpContent content, bool reThrow, int timeoutSeconds = 5)
+    public static async Task<T?> SendPatch<T>(string endpoint, HttpContent content, bool reThrow = false, int timeoutSeconds = 5)
     {
         try
         {

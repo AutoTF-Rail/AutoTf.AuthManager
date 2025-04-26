@@ -7,7 +7,7 @@ public partial class MfaDevicesView : UserControl
 {
     public MfaDevicesView()
     {
-        DataContext = new MfaDeviceViewModel();
         InitializeComponent();
+        DataContext = new MfaDeviceViewModel();
     }
 }

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace AutoTf.AuthManager.Models.Authentik;
 
-public class TotpDevice
+public class MfaDevice
 {
     [JsonPropertyName("verbose_name")]
     public string VerboseName { get; set; }
@@ -38,9 +38,9 @@ public class TotpDevice
     [JsonPropertyName("extra_description")]
     public string ExtraDescription { get; set; }
 
-    public static TotpDevice Serialize(JsonElement item)
+    public static MfaDevice Serialize(JsonElement item)
     {
-        return new TotpDevice()
+        return new MfaDevice()
         {
             VerboseName = item.GetProperty("verbose_name").GetString() ?? "Unknown",
             VerboseNamePlural = item.GetProperty("verbose_name_plural").GetString() ?? "Unknown",
@@ -56,4 +56,9 @@ public class TotpDevice
             ExtraDescription = item.GetProperty("extra_description").GetString() ?? "Unknown"
         };
     }
+    
+    /// <summary>
+    /// Only for the UI
+    /// </summary>
+    public bool IsChecked { get; set; }
 }
