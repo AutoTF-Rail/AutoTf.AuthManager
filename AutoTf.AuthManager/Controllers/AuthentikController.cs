@@ -49,6 +49,11 @@ public class AuthentikController : ControllerBase, IActionFilter
             
         try
         {
+            #if DEBUG
+            deviceName = "exampleUser@autotf.de";
+            return true;
+            #endif
+            
             deviceName = headers["X-Authentik-Username"].ToString();
                 
             // We don't need to further validate this, because all incoming traffic is being routed through authentik anyways, so this is secure enough.
