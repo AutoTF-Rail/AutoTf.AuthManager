@@ -21,4 +21,7 @@
     <ItemGroup>
         <WasmFiles Include="bin\Release\net8.0\wasm\publish\**\*.*" />
     </ItemGroup>
+    <ItemGroup>
+      <AvaloniaResource Include="wwwroot\favicon.png" />
+    </ItemGroup>
 </Project>

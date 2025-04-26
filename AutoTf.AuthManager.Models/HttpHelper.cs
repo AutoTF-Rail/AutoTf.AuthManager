@@ -1,10 +1,7 @@
-using System.Diagnostics;
 using System.Net.Http.Headers;
-using System.Runtime.InteropServices;
 using System.Text.Json;
-using Microsoft.AspNetCore.Mvc;
 
-namespace AutoTf.AuthManager;
+namespace AutoTf.AuthManager.Models;
 
 public static class HttpHelper
 {

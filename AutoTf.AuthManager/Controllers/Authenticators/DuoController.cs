@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using AutoTf.AuthManager.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoTf.AuthManager.Controllers.Authenticators;

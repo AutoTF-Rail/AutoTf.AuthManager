@@ -4,6 +4,6 @@ namespace AutoTf.AuthManager.Avalonia.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
-    // [ObservableObject]
-    // private string _greeting = "Welcome to Avalonia!";
+    // [ObservableProperty]
+    // public string Greeting { get; }
 }

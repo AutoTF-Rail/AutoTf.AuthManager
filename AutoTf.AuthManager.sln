@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.AuthManager.Avalonia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.AuthManager.Avalonia.Browser", "AutoTf.AuthManager.Avalonia.Browser\AutoTf.AuthManager.Avalonia.Browser.csproj", "{6CF0B74B-F70F-4CA0-B8ED-6C59703B4C20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.AuthManager.Avalonia.Desktop", "AutoTf.AuthManager.Avalonia.Desktop\AutoTf.AuthManager.Avalonia.Desktop.csproj", "{62734595-E266-4104-8E02-2FF4DB9E9AD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.AuthManager.Models", "AutoTf.AuthManager.Models\AutoTf.AuthManager.Models.csproj", "{455E113A-8431-4A2F-B9A7-F48A107CC758}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,5 +36,13 @@ Global
 		{6CF0B74B-F70F-4CA0-B8ED-6C59703B4C20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CF0B74B-F70F-4CA0-B8ED-6C59703B4C20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CF0B74B-F70F-4CA0-B8ED-6C59703B4C20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62734595-E266-4104-8E02-2FF4DB9E9AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62734595-E266-4104-8E02-2FF4DB9E9AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62734595-E266-4104-8E02-2FF4DB9E9AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62734595-E266-4104-8E02-2FF4DB9E9AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{455E113A-8431-4A2F-B9A7-F48A107CC758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455E113A-8431-4A2F-B9A7-F48A107CC758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{455E113A-8431-4A2F-B9A7-F48A107CC758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{455E113A-8431-4A2F-B9A7-F48A107CC758}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

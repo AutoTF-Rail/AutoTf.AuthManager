@@ -8,4 +8,15 @@ public partial class MainView : UserControl
     {
         InitializeComponent();
     }
+
+    private void TabsListbox_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        if (TabsListbox.SelectedItem is not TextBlock textBlock)
+            return;
+        
+        if (textBlock.Text == "MFA Devices")
+        {
+            Console.WriteLine("Changing to MFA Devices tab.");
+        }
+    }
 }

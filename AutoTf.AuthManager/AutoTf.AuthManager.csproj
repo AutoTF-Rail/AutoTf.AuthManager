@@ -10,6 +10,10 @@
     <ItemGroup>
       <Folder Include="Models\Authentik\Requests\Authenticators\" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AutoTf.AuthManager.Models\AutoTf.AuthManager.Models.csproj" />
+    </ItemGroup>
     
     <Target Name="BuildBrowserProject" BeforeTargets="Build">
         <Exec Command="dotnet publish ../AutoTf.AuthManager.Avalonia.Browser/AutoTf.AuthManager.Avalonia.Browser.csproj -c Release" />

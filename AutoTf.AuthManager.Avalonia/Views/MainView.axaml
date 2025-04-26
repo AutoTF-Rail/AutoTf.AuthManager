@@ -7,11 +7,22 @@
              x:Class="AutoTf.AuthManager.Avalonia.Views.MainView"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
     <vm:MainViewModel />
   </Design.DataContext>
 
-    <TextBlock>Meow</TextBlock>
-  <!-- <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        
+        <ListBox Grid.Column="0" Name="TabsListbox" SelectionChanged="TabsListbox_OnSelectionChanged">
+            <TextBlock HorizontalAlignment="Stretch" FontSize="20">User details</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="20">Sessions</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="20">Consent</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="20">MFA Devices</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="20">Connected services</TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" FontSize="20">Tokens and App passwords</TextBlock>
+        </ListBox>
+    </Grid>
 </UserControl>

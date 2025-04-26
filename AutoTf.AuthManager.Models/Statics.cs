@@ -1,4 +1,4 @@
-namespace AutoTf.AuthManager;
+namespace AutoTf.AuthManager.Models;
 
 public static class Statics
 {
