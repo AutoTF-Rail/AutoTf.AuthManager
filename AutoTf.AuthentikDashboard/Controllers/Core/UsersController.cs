@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AutoTf.AuthentikDashboard.Controllers.Core;
 
 [ApiController]
-[Route("core/users")]
+[Route("/core/users")]
 public class UsersController : AuthentikController
 {
     public UsersController(UserManager userManager) : base(userManager) { }
