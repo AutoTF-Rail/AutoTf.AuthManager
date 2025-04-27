@@ -398,14 +398,14 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-AutoTf.AuthManager/appsettings.Development.json
+AutoTf.AuthentikDashboard/appsettings.Development.json
 .idea
-AutoTf.AuthManager/wwwroot/_framework
-AutoTf.AuthManager/wwwroot/app.css
-AutoTf.AuthManager/wwwroot/favicon.ico
-AutoTf.AuthManager/wwwroot/index.html
-AutoTf.AuthManager/wwwroot/main.js
-AutoTf.AuthManager/wwwroot
-AutoTf.AuthManager/.DS_Store
+AutoTf.AuthentikDashboard/wwwroot/_framework
+AutoTf.AuthentikDashboard/wwwroot/app.css
+AutoTf.AuthentikDashboard/wwwroot/favicon.ico
+AutoTf.AuthentikDashboard/wwwroot/index.html
+AutoTf.AuthentikDashboard/wwwroot/main.js
+AutoTf.AuthentikDashboard/wwwroot
+AutoTf.AuthentikDashboard/.DS_Store
 .DS_Store
-AutoTf.AuthManager/wwwroot/index.html
+AutoTf.AuthentikDashboard/wwwroot/index.html

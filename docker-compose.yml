@@ -1,7 +1,7 @@
 ﻿services:
-  autotf.authmanager:
-    container_name: AuthManager
-    image: 172.17.0.3:5001/repository/docker-autotf/autotf.authmanager:latest
+  autotf.authentikdashboard:
+    container_name: authdashboard
+    image: 172.17.0.3:5001/repository/docker-autotf/autotf.authentikdashboard:latest
     restart: unless-stopped
 #    Create .env file in same directory containing e.g. clientId=XXX
     environment:

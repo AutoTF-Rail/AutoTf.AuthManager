@@ -9,16 +9,16 @@ RUN dotnet workload install wasm-tools
 
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["AutoTf.AuthManager/AutoTf.AuthManager.csproj", "AutoTf.AuthManager/"]
-RUN dotnet restore "AutoTf.AuthManager/AutoTf.AuthManager.csproj"
+COPY ["AutoTf.AuthentikDashboard/AutoTf.AuthentikDashboard.csproj", "AutoTf.AuthentikDashboard/"]
+RUN dotnet restore "AutoTf.AuthentikDashboard/AutoTf.AuthentikDashboard.csproj"
 COPY . .
 
 WORKDIR "/src/AutoTf.AuthManager"
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "AutoTf.AuthManager.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "AutoTf.AuthentikDashboard.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "AutoTf.AuthManager.dll"]
+ENTRYPOINT ["dotnet", "AutoTf.AuthentikDashboard.dll"]
