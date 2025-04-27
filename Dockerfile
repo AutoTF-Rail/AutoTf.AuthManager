@@ -13,7 +13,7 @@ COPY ["AutoTf.AuthentikDashboard/AutoTf.AuthentikDashboard.csproj", "AutoTf.Auth
 RUN dotnet restore "AutoTf.AuthentikDashboard/AutoTf.AuthentikDashboard.csproj"
 COPY . .
 
-WORKDIR "/src/AutoTf.AuthManager"
+WORKDIR "/src/AutoTf.AuthentikDashboard"
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "AutoTf.AuthentikDashboard.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
