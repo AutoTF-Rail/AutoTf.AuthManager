@@ -33,7 +33,7 @@
             
         </StackPanel>
         
-        <ListBox ItemsSource="{Binding Devices}" Margin="10, 70, 10, 10">
+        <ListBox ItemsSource="{Binding Devices}" Margin="10, 70, 10, 10"  SelectionChanged="MfaDevicesList_OnSelectionChanged" Name="DevicesList">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="authentik:MfaDevice">
                     <Grid HorizontalAlignment="Stretch">
