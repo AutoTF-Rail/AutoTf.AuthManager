@@ -6,6 +6,7 @@
              xmlns:viewModels="clr-namespace:AutoTf.AuthManager.Avalonia.Browser.ViewModels"
              xmlns:authentik="clr-namespace:AutoTf.AuthManager.Models.Authentik;assembly=AutoTf.AuthManager.Models"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             MinWidth="500"
              x:Class="AutoTf.AuthManager.Avalonia.Browser.UserControls.MfaDevicesView"
              x:DataType="viewModels:MfaDeviceViewModel">
     <Design.DataContext>

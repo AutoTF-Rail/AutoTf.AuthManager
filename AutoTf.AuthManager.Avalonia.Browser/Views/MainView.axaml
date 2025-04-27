@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AutoTf.AuthManager.Avalonia.Browser.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             MinWidth="700"
              x:Class="AutoTf.AuthManager.Avalonia.Browser.Views.MainView"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
