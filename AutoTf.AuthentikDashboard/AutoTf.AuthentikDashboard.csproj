@@ -17,11 +17,11 @@
       <ProjectReference Include="..\AutoTf.AuthentikDashboard.Models\AutoTf.AuthentikDashboard.Models.csproj" />
     </ItemGroup>
     
-    <Target Name="BuildBrowserProject" BeforeTargets="Build">
+    <Target Name="BuildBrowserProject" BeforeTargets="Build" Condition="'$(Configuration)' != 'ReleaseNoFrontend'">
         <Exec Command="dotnet build ../AutoTf.AuthentikDashboard.Avalonia.Browser/AutoTf.AuthentikDashboard.Avalonia.Browser.csproj -c $(Configuration) -m" />
     </Target>
 
-  <Target Name="CopyAvaloniaWebOutput" AfterTargets="Build">
+  <Target Name="CopyAvaloniaWebOutput" AfterTargets="Build" Condition="'$(Configuration)' != 'ReleaseNoFrontend'">
     <ItemGroup>
       <WwwRootFiles Include="../AutoTf.AuthentikDashboard.Avalonia.Browser/bin/$(Configuration)/net9.0-browser/wwwroot/**/*"/>
     </ItemGroup>
@@ -31,7 +31,7 @@
             SkipUnchangedFiles="true" />
   </Target>
 
-  <Target Name="CopyAvaloniaStaticFiles" AfterTargets="Build">
+  <Target Name="CopyAvaloniaStaticFiles" AfterTargets="Build" Condition="'$(Configuration)' != 'ReleaseNoFrontend'">
     <ItemGroup>
       <WwwStaticFiles Include="../AutoTf.AuthentikDashboard.Avalonia.Browser/wwwroot/**/*"/>
     </ItemGroup>
