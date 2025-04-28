@@ -12,6 +12,13 @@ public class BrandsController : AuthentikController
     [HttpGet("current")]
     public async Task<ActionResult<string>> Current()
     {
-        return await HttpHelper.SendGetString("/core/brands/current/");
+        try
+        {
+            return await HttpHelper.SendGetString("/core/brands/current/", true);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
 }
