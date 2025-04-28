@@ -19,15 +19,6 @@ public class FlowsController : AuthentikController
     [HttpGet("executor/{flowName}")]
     public async Task<ActionResult<string>> ExecuteFlow(string flowName, [FromQuery] string query = "")
     {
-        try
-        {
-            return await HttpHelper.SendGetString($"/api/v3/executor/{flowName}/?query={query}", true);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-        }
-
-        return ";";
+        return await HttpHelper.SendGetString($"/api/v3/flows/executor/{flowName}/?query={query}");
     }
 }
