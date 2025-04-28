@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using AutoTf.AuthentikDashboard.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,8 +17,8 @@ public class FlowsController : AuthentikController
     }
 
     [HttpGet("executor/{flowName}")]
-    public async Task<ActionResult<string>> ExecuteFlow(string flowName)
+    public async Task<ActionResult<string>> ExecuteFlow(string flowName, [FromQuery, Required] string query)
     {
-        return await HttpHelper.SendGetString($"/executor/{flowName}/");
+        return await HttpHelper.SendGetString($"/api/v3/executor/{flowName}/?query={query}");
     }
 }
