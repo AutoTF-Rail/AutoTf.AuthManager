@@ -14,4 +14,10 @@ public class FlowsController : AuthentikController
     {
         return RedirectPermanent(Statics.AuthUrl + $"/flows/-/configure/{flowId}/");
     }
+
+    [HttpGet("executor/{flowName}")]
+    public async Task<ActionResult<string>> ExecuteFlow(string flowName)
+    {
+        return await HttpHelper.SendGetString($"/executor/{flowName}/");
+    }
 }
