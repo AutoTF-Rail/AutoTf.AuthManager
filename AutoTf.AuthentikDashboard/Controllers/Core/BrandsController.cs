@@ -20,5 +20,7 @@ public class BrandsController : AuthentikController
         {
             Console.WriteLine(e);
         }
+
+        return "";
     }
 }
