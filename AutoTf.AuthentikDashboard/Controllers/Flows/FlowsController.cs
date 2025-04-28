@@ -17,7 +17,7 @@ public class FlowsController : AuthentikController
     }
 
     [HttpGet("executor/{flowName}")]
-    public async Task<ActionResult<string>> ExecuteFlow(string flowName, [FromQuery] string query)
+    public async Task<ActionResult<string>> ExecuteFlow(string flowName, [FromQuery] string query = "")
     {
         return await HttpHelper.SendGetString($"/api/v3/executor/{flowName}/?query={query}");
     }
