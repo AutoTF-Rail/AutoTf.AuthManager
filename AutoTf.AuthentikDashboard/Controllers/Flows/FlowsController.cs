@@ -27,5 +27,7 @@ public class FlowsController : AuthentikController
         {
             Console.WriteLine(e);
         }
+
+        return ";";
     }
 }
