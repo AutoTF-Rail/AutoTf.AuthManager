@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Controllers\If\Flow\" />
       <Folder Include="Models\Authentik\Requests\Authenticators\" />
     </ItemGroup>
 
