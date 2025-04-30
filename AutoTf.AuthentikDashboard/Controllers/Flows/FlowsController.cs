@@ -21,4 +21,10 @@ public class FlowsController : AuthentikController
     {
         return await HttpHelper.SendGetString($"/api/v3/flows/executor/{flowName}/?query={query}");
     }
+
+    [HttpGet("-/default/{slug}")]
+    public IActionResult RedirectToDefault(string slug, [FromQuery] string next)
+    {
+        return RedirectPermanent(Statics.AuthUrl + $"/flows/-/default/{slug}/?next={next}/");
+    }
 }
